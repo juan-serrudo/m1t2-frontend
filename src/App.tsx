@@ -8,6 +8,7 @@ import TypeArticle from './pages/TypeArticle'
 import Size from './pages/Size'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Footer from './components/Footer'
 
 const App = () => {
   const navigate = useNavigate();
@@ -53,18 +54,24 @@ const App = () => {
 
   return (
     <div className="App">
-      <Menubar
-        model={menuItems}
-      />
+      <header>
+        <Menubar
+          model={menuItems}
+        />
+      </header>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/article" element={<Article />} />
-        <Route path="/typearticle" element={<TypeArticle />} />
-        <Route path="/size" element={<Size />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/article" element={<Article />} />
+          <Route path="/typearticle" element={<TypeArticle />} />
+          <Route path="/size" element={<Size />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+
+      <Footer />
     </div>
   );
 }
