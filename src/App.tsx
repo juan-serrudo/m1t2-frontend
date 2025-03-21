@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Routes, Route, useNavigate} from 'react-router-dom'
+import { Menubar } from 'primereact/menubar'
+import { MenuItem } from 'primereact/menuitem';
+import Home from './pages/Home'
+import Article from './pages/Article'
+import TypeArticle from './pages/TypeArticle'
+import Size from './pages/Size'
+import About from './pages/About'
+import Contact from './pages/Contact'
+
+const App = () => {
+  const navigate = useNavigate();
+
+  const menuItems: MenuItem[] = [
+    {
+      label: 'Inicio',
+      icon: 'pi pi-home',
+      command: () => navigate('/')
+    },
+    {
+      label: 'Catálogo',
+      icon: 'pi pi-align-justify',
+      items: [
+        {
+          label: 'Articulos',
+          icon: 'pi pi-car',
+          command: () => navigate('/article')
+        },
+        {
+          label: 'Tipo de articulos',
+          icon: 'pi pi-cart-arrow-down',
+          command: () => navigate('/typearticle')
+        },
+        {
+          label: 'Tallas',
+          icon: 'pi pi-thumbtack',
+          command: () => navigate('/size')
+        }
+      ]
+    },
+    {
+      label: 'Acerca de',
+      icon: 'pi pi-users',
+      command: () => navigate('/about')
+    },
+    {
+      label: 'Contacto',
+      icon: 'pi pi-envelope',
+      command: () => navigate('/contact')
+    }
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Menubar
+        model={menuItems}
+      />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/article" element={<Article />} />
+        <Route path="/typearticle" element={<TypeArticle />} />
+        <Route path="/size" element={<Size />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App
