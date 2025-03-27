@@ -6,8 +6,7 @@ import Home from './pages/Home'
 import Article from './pages/Article'
 import TypeArticle from './pages/TypeArticle'
 import Size from './pages/Size'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import User from './pages/User'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -41,14 +40,9 @@ const App = () => {
       ]
     },
     {
-      label: 'Acerca de',
+      label: 'Usuarios',
       icon: 'pi pi-users',
-      command: () => navigate('/about')
-    },
-    {
-      label: 'Contacto',
-      icon: 'pi pi-envelope',
-      command: () => navigate('/contact')
+      command: () => navigate('/user')
     }
   ];
 
@@ -66,8 +60,7 @@ const App = () => {
           <Route path="/article" element={<Article />} />
           <Route path="/typearticle" element={<TypeArticle />} />
           <Route path="/size" element={<Size />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/user" element={<User />} />
         </Routes>
       </main>
 

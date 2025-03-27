@@ -20,7 +20,7 @@ const axiosClient: AxiosInstance = axios.create({
 axiosClient.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
         // const token = localStorage.getItem(TOKEN_KEY); // o donde guardes tu token
-        const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXN1YXJpbyIsInJvbGUiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQzMTAzNjYzLCJleHAiOjE3NDMxMTgwNjN9.jw0AI6KLFWS_qAnDYkDlNqqKIt5PzAdYXL4EPqXEmJI"
+        const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXN1YXJpbyIsInJvbGUiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQzMTA5OTI5LCJleHAiOjE5OTU1NzA3Mjl9.Af3LXvDomnXp66hecuSDCAN-2z0Ldtn04J8TQ-usp2Y"
         if (token) config.headers['Authorization'] = `Bearer ${token}`;
         return config;
     },

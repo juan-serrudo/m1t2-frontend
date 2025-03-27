@@ -41,6 +41,7 @@ const Size = () => {
   const endContent = () => {
     return <Button label="Nuevo" icon="pi pi-plus" severity="success" onClick={() => setform(true)} />
   }
+
   // usar states
   const [items, itemsSet] = useState([]);
   const [filters, filtersSet] = useState({
@@ -111,6 +112,7 @@ const Size = () => {
     });
     onLoadData();
   }, []);
+
   const onLoadData = () => {
     serviceFetchAll().then((response) => {
       itemsSet(response.response)
@@ -122,6 +124,7 @@ const Size = () => {
   }
 
   const onCloseForm = () => setform(false);
+
   const onSubmit = async (data: any) => {
     if (data?.id) await serviceFetchUpdate(data.id, data)
     else await serviceFetchCreate(data)
@@ -142,16 +145,17 @@ const Size = () => {
         onLoadData();
         setdialogDelete(false)
       }
-      , 3000
+      , 100
     )
   }
 
   return (
     <>
       <div className="card">
+        <br></br>
         <Toolbar className="mb-4" end={endContent}></Toolbar>
-        {/* tabla */}
 
+        {/* tabla */}
         <DataTable
           value={items}
           totalRecords={filters.total ?? 0}
@@ -182,7 +186,7 @@ const Size = () => {
           ))}
         </DataTable>
 
-        <Dialog header="Header" visible={form} style={{ width: '50vw' }} onHide={() => { if (!form) return; setform(false); }}>
+        <Dialog header="Tamaño" visible={form} style={{ width: '50vw' }} onHide={() => { if (!form) return; setform(false); }}>
           <form
             onSubmit={handleSubmit((data) => onSubmit(data))}
             noValidate

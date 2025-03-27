@@ -1,5 +1,5 @@
-const Contact = () => {
-  return <h2>Contacto</h2>;
+const User = () => {
+  return <h2>USUARIO</h2>;
 };
 
-export default Contact;
+export default User;
