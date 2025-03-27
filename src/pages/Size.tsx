@@ -1,10 +1,9 @@
+import { useState, useEffect } from 'react'
 import { Button } from 'primereact/button'
 import { Toolbar } from 'primereact/toolbar'
-import { useState } from 'react'
-import { Column } from "primereact/column";
-import { DataTable } from "primereact/datatable";
-import gatewayClient from "../api/gatewayClient"
-import { useEffect } from 'react';
+import { Column } from 'primereact/column'
+import { DataTable } from 'primereact/datatable'
+import gatewayClient from '../api/gatewayClient'
 import { InputText } from 'primereact/inputtext';
 import { classNames } from 'primereact/utils';
 // para formulario
@@ -31,7 +30,7 @@ export const serviceFetchUpdate = async (id: number, updatedPost: any): Promise<
   return response.data;
 };
 
-export const serviceFetchremove = async (id: number): Promise<any> => {
+export const serviceFetchRemove = async (id: number): Promise<any> => {
   const response = await gatewayClient.delete(`${PREFIX_SERVICE}/${id}`,);
   return response.data;
 };
@@ -139,7 +138,7 @@ const Size = () => {
     setdialogDelete(true)
   };
   const onDelete = () => {
-    serviceFetchremove(itemIdSelect);
+    serviceFetchRemove(itemIdSelect);
     setTimeout(
       () => {
         onLoadData();
