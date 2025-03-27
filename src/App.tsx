@@ -23,11 +23,6 @@ const App = () => {
       icon: 'pi pi-align-justify',
       items: [
         {
-          label: 'Articulos',
-          icon: 'pi pi-car',
-          command: () => navigate('/article')
-        },
-        {
           label: 'Tipo de articulos',
           icon: 'pi pi-cart-arrow-down',
           command: () => navigate('/typearticle')
@@ -36,7 +31,12 @@ const App = () => {
           label: 'Tallas',
           icon: 'pi pi-thumbtack',
           command: () => navigate('/size')
-        }
+        },
+        {
+          label: 'Articulos',
+          icon: 'pi pi-car',
+          command: () => navigate('/article')
+        },
       ]
     },
     {
